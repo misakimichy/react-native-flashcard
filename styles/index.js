@@ -15,6 +15,10 @@ const styles = StylesSheet.create({
         justifyContent: 'center',
         alignItem: 'center',
     },
+    deck: {
+        justifyContent: 'center',
+        alignItem: 'center',
+    },
     button: {
         borderRadius: 3,
         borderWidth: 1,
