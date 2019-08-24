@@ -1,9 +1,9 @@
 import { AsyncStorage } from 'react-native';
 import Deck from './../models/Deck';
 
-const DECK_KEY = 'flashcards:decks';
-const readDecks = () => read(DECK_KEY, Deck.fromObject);
-const writeDecks = decks => write(DECK_KEY, decks);
+export const DECK_KEY = 'flashcards:decks';
+export const readDecks = () => read(DECK_KEY, Deck.fromObject);
+export const writeDecks = decks => write(DECK_KEY, decks);
 
 export const read = async (key, numbs) => {
     try {

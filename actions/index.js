@@ -1,6 +1,6 @@
-const ADD_DECK = "ADD_DECK";
-const ADD_CARD = "ADD_CARD";
-const LOAD_DATA = "LOAD_DATA";
+export const ADD_DECK = "ADD_DECK";
+export const ADD_CARD = "ADD_CARD";
+export const LOAD_DATA = "LOAD_DATA";
 
 import Card from '../models/Card';
 import Deck from '../models/Deck';
