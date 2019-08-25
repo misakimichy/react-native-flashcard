@@ -1,4 +1,4 @@
-import { guide } from '../utils'
+import { guide } from '../utils';
 
 class Deck {
   constructor(name) {
