@@ -1,15 +1,12 @@
 import { ADD_DECK, ADD_CARD, LOAD_DATA } from '../actions/index';
-
 import { writeDecks } from '../utils/api';
 
 const newCardDeck = (oldDecks, card) => {
     let newState = oldDecks.map(deck => {
         if(deck.id === card.deckId) {
             deck.addCard(card);
-            return deck;
-        } else {
-            return deck;
         }
+        return deck;
     });
     saveDecks(newState);
     return newState;
