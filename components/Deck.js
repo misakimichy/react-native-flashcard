@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../styles';
-import { storeUrl } from 'expo/build/StoreReview/StoreReview';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => {
         const { card } = navigation.state.params;
-        return {
-            title: card.title
-        }
+        return { title: card.title }
     }
 
     render() {
         const { card, navigation } = this.props;
+        
         return (
             <View style={styles.container}>
                 <View style={styles.content}>
