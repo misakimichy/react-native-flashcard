@@ -3,7 +3,6 @@ import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } f
 import { addCard } from '../actions';
 import { saveCard } from '../utils/api';
 import { connect } from 'react-redux';
-import { white, black } from '../utils/colors';
 
 SubmitBtn = ({ onPress }) => {
     return (
@@ -16,12 +15,9 @@ SubmitBtn = ({ onPress }) => {
 }
 
 class AddCard extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            question: '',
-            answer: ''
-        }
+    state = {
+        question: '',
+        answer: ''
     }
 
     submit = () => {
@@ -47,58 +43,22 @@ class AddCard extends Component{
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
                 <Text style={styles.label}>Question</Text>
                 <TextInput
-                 value={question}
-                 style={styles.input}
-                 onChangeText={(question) => this.setState({question})}
-                 autoFocus={true}
+                    value={question}
+                    style={styles.input}
+                    onChangeText={(question) => this.setState({question})}
+                    autoFocus={true}
                 />
                 <Text style={styles.label}>Answer</Text>
                 <TextInput
-                 value={answer}
-                 style={styles.input}
-                 onChangeText={(answer) => this.setState({answer})}
+                    value={answer}
+                    style={styles.input}
+                    onChangeText={(answer) => this.setState({answer})}
                 />
                 <SubmitBtn onPress={this.submit} />
             </KeyboardAvoidingView>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 40
-    },
-    question: {
-        fontSize: 18,
-        alignSelf: 'flex-start',
-        color: black
-    },
-    input: {
-        width: 250,
-        height: 44,
-        padding: 8,
-        borderWidth: 1,
-        borderColor: black,
-        marginBottom: 15
-    },
-    submitBtn: {
-        backgroundColor: black,
-        padding: 10,
-        borderRadius: 5,
-        height: 45,
-        marginLeft: 40,
-        marginRight: 40,
-        marginBottom: 100
-    },
-    submitBtnText: {
-        color: white,
-        fontSize: 22,
-        textAlign: 'center'
-    }
-})
 
 function mapStateToProps(state, { navigation }){
     const { deckId } = navigation.state.params

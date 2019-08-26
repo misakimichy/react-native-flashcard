@@ -1,51 +1,56 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Animated } from 'react-native';
 import { connect } from 'react-redux';
-import styles from '../styles';
+import { style } from '../style/styles';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => {
-        const { card } = navigation.state.params;
-        return { title: card.title }
+        const { deckName } = navigation.state.params;
+        return { title: deckName }
+    }
+
+    // Animated: https://facebook.github.io/react-native/docs/animated
+    state = {
+        opacity: new Animated.Value(0)
+    }
+
+    componentDidMount() {
+        const { opacity } = this.state;
+        Animated.timing(opacity, {toValue: 1, duration: 500}).start();
     }
 
     render() {
-        const { card, navigation } = this.props;
+        const { opacity } = this.state;
+        const { deckId } = this.props;
+        const { questions, title } = this.props.deck;
         
+        // Press deck and generate animation.
         return (
-            <View style={styles.container}>
-                <View style={styles.content}>
-                    <View style={styles.deck}>
-                        <Text style={styles.title}>{card.title}</Text>
-                        <Text>{card.questions.length}</Text>
-                    </View>
-                </View>
-                <View style={styles.footer}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => navigation.navigate('createCard', { card: card })}>
-                        <Text styles={styles.buttonText}>Add Card</Text>
-                    </TouchableOpacity>
-                    {card.questions.length > 0
-                     ? (
-                     <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => navigation.navigate('Quiz', {card: card})}
-                     >
-                        <Text style={styles.buttonText}>Start Quiz</Text>
-                     </TouchableOpacity>
-                     )
-                     : null
-                    }
-                </View>
-            </View>
+            <Animated.View style={[styles.deck, { opacity }]}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.count}>{questions.length} {questions.length === 1 ? `card` : `cards`}</Text>
+                <TouchableOpacity
+                    style={[styles.btn, {marginTop: 50}]}
+                    onPress={() => this.props.navigation.navigate('AddCard', {deckId: deckId})}
+                >
+                    <Text style={styles.btnText}>Add Card</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.btn, {backgroundColor: black}]}
+                    onPress={() => (questions.length === 0 ? alert('Get started by adding few cards!') : this.props.navigation.navigate('Question', {deckId: deckId}))}
+                >
+                    <Text style={[styles.btnText, {color: white}]}>Start Quiz!</Text>
+                </TouchableOpacity>
+            </Animated.View>
         )
     }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, {navigation}) => {
+    const { deckId } = navigation.state.params
     return {
-        card: props.navigation.state.params.card
+        deckId,
+        deck: state[deckId],
     }
 }
 export default connect(mapStateToProps)(Deck);

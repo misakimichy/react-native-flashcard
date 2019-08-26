@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } from 'react-native';
 import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
-import { white, black } from '../utils/colors';
 import { generateUID } from '../utils/helpers';
+import styles from '../style/styles';
 
 SubmitDeckBtn = ({ onPress }) => {
     return (
@@ -61,41 +61,5 @@ class AddDeck extends Component{
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    question: {
-        fontSize: 30,
-        marginLeft: 20,
-        marginRight: 20,
-        color: black
-    },
-    input: {
-        width: 250,
-        height: 44,
-        padding: 8,
-        borderWidth: 1,
-        borderColor: black,
-        margin: 20
-    },
-    submitBtn: {
-        backgroundColor: black,
-        padding: 10,
-        borderRadius: 0,
-        height: 45,
-        marginLeft: 40,
-        marginRight: 40,
-        marginBottom: 60
-    },
-    submitBtnText: {
-        color: white,
-        fontSize: 22,
-        textAlign: 'center'
-    }
-});
 
 export default AddDeck;
