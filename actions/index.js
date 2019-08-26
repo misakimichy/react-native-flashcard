@@ -1,21 +1,27 @@
 export const ADD_DECK = "ADD_DECK";
 export const ADD_CARD = "ADD_CARD";
-export const LOAD_DATA = "LOAD_DATA";
+export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 
-import Card from '../models/Card';
-import Deck from '../models/Deck';
+export function addDeck(deckId, deck) {
+    return {
+        type: ADD_DECK,
+        deckId,
+        deck
+    }
+}
 
-export const addDeck = name => ({
-    type: ADD_DECK,
-    data: new Deck(name)
-});
+export function addCard(deckId, question, answer) {
+    return {
+        type: ADD_CARD,
+        deckId,
+        question,
+        answer
+    }
+}
 
-export const addCard = deckId => ({
-    type: ADD_CARD,
-    data: new Card(deckId)
-});
-
-export const loadData = data => ({
-    type: LOAD_DATA,
-    data
-});
+export function receiveDecks(decks) {
+    return {
+        type: RECEIVE_DECKS,
+        decks,
+    }
+}
