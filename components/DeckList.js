@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text,  TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styles from '../style/styles';
 
@@ -9,13 +9,13 @@ class DeckList extends Component {
         const { id, title, count, navigation } = this.props;
 
         return (
-            <TouchableOpacity
+            < TouchableOpacity
                 style={styles.item} 
                 onPress={() => navigation.navigate('Deck', {deckId: id, deckName: title})}
             >
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.count}>{count} {count === 1 ? `card` : `cards`}</Text>
-            </TouchableOpacity>
+            </ TouchableOpacity>
         )
     }
 }
