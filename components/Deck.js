@@ -26,6 +26,17 @@ class Deck extends Component {
                         onPress={() => navigation.navigate('createCard', { card: card })}>
                         <Text styles={styles.buttonText}>Add Card</Text>
                     </TouchableOpacity>
+                    {card.questions.length > 0
+                     ? (
+                     <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.navigate('Quiz', {card: card})}
+                     >
+                        <Text style={styles.buttonText}>Start Quiz</Text>
+                     </TouchableOpacity>
+                     )
+                     : null
+                    }
                 </View>
             </View>
         )
