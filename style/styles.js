@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { gray, lightGray, black, white, red, orange, blue, purple, lightPurple, pink } from '../utils/colors';
+import { gray, black, white, orange } from '../utils/colors';
 
 export const style = StyleSheet.create({
     container: {
@@ -9,6 +9,11 @@ export const style = StyleSheet.create({
         margin: 40
     },
     deck: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    center: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -47,6 +52,10 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    list: {
+        flex: 1,
+        alignSelf: 'stretch'
+    },
     btn: {
         width: 150,
         height: 50,
@@ -79,4 +88,23 @@ export const style = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center'
     },
+    cardText: {
+        fontSize: 20,
+        color: black,
+        marginLeft: 15,
+        marginRight: 15
+    },
+    score: {
+        color: black,
+        fontSize: 20,
+        marginBottom: 5
+    },
+    scoreText: {
+        color: white,
+        fontSize: 16
+    },
+    rest: {
+        textAlign: 'center',
+        color: orange
+    }
 })
