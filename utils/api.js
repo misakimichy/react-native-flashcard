@@ -1,31 +1,21 @@
 import { AsyncStorage } from 'react-native';
-import Deck from './../models/Deck';
+import { formatDecksResults, DECKS_KEY } from './decks';
 
-export const DECK_KEY = 'flashcards:decks';
-export const readDecks = () => read(DECK_KEY, Deck.fromObject);
-export const writeDecks = decks => write(DECK_KEY, decks);
+export function getDecks () {
+    return AsyncStorage.getItem(DECKS_KEY)
+    .then(formatDecksResults)
+}
 
-export const read = async (key, numbs) => {
-    try {
-        let val = await AsyncStorage.getItem(key);
-        if(val !== null) {
-            let readValue = JSON.parse(val).map(numb => {
-                return numbs(numb);
-            })
-            readValue;
-        } else {
-            console.log(`${key} is not found.`);
-            return [];
-        }
-    } catch (error) {
-        console.log('AsyncStorage error:', error.message);
-    }
-};
+export function saveDeck(key, deck) {
+    return AsyncStorage.mergeItem(DECKS_KEY, JSON.stringify({
+        [key]: deck
+    }))
+}
 
-export const write = async (key, item) => {
-    try {
-        await AsyncStorage.setItem(key, JSON.stringify(item));
-    } catch (error) {
-        console.log('AsyncStorage error:', error.message);
-    }
-};
+export function saveCard(key, question, answer) {
+    AsyncStorage.getItem(DECKS_KEY).then((result) => {
+        let decks = JSON.parse(result)
+        decks[key].questions.push({question: question, answer: answer})
+        AsyncStorage.mergeItem(DECKS_KEY, JSON.stringify(decks))
+    })
+}
