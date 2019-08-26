@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { styles } from '../styles/index';
+import {  clearLocalNotification, setLocalNotification } from '../utils/notifications';
 
 class Quiz extends Component {
     static navigationOptions = {
@@ -34,6 +35,8 @@ class Quiz extends Component {
                 correctAnswers: previousState.correctAnswers + 1
             }))
         }
+        clearLocalNotification()
+            .then(setLocalNotification());
         // Todo: call changeQuestion function
         this.changeQuestion();
     }
