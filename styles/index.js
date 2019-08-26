@@ -35,6 +35,9 @@ const styles = StylesSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    buttonPlain: {
+        borderRadius: 5
+    },
     input: {
         height: 40,
         weight: 300,
