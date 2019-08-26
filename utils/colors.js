@@ -1,0 +1,11 @@
+// Use hex color picker
+export const gray = '#666';
+export const lightGray = '#888';
+export const black = '#444';
+export const white = '#fff';
+export const red = '#e63737';
+export const orange = '#f5a720';
+export const blue = '#1b3bf2';
+export const purple = '#9b07e0';
+export const lightPurple = '#cb71f5';
+export const pink = '#f77cca';
