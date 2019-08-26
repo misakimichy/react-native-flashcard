@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 import Card from './Card';
 import Score from './Score';
-import { styles } from '../styles/styles';
+import { styles } from '../style/styles';
 
 class Question extends Component {
     state = {

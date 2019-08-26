@@ -6,6 +6,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import { Constants } from 'expo';
 import reducer from './reducers';
 import { setLocalNotification } from './utils/helpers';
+import { black, white } from './utils/colors';
 import AddDeck from './components/AddDeck';
 import AddCard from './components/AddCard';
 import DeckLists from './components/DeckLists';
@@ -15,7 +16,7 @@ import Question from './components/Question';
 
 const store = createStore(reducer);
 
-StatusBar = ({ backgroundColor, ...props}) => {
+const AppStatusBar = ({ backgroundColor, ...props}) => {
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
@@ -81,13 +82,13 @@ const Stack = createStackNavigator({
 
 class App extends Component {
   componentDidMount(){
-      setLocalNotification()
+      setLocalNotification();
   }
   render() {
       return (
           <Provider store={createStore(reducer)}>
               <View style={{ flex: 1 }}>
-                  <StatusBar backgroundColor={black} barStyle="light-content" />
+                  <AppStatusBar backgroundColor={black} barStyle="light-content" />
                   <Stack />
               </View>
           </Provider>
