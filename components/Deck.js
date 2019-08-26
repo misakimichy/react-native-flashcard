@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Animated } from 'react-native';
+import { Text, TouchableOpacity, Animated } from 'react-native';
 import { connect } from 'react-redux';
-import { style } from '../style/styles';
+import { styles } from '../style/styles';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => {

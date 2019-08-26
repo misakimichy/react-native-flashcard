@@ -16,45 +16,43 @@ SubmitDeckBtn = ({ onPress }) => {
 }
 
 class AddDeck extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            nameOfDeck: ''
-        }
+    state = {
+        nameOfDeck: ''
     }
 
+    // Dispatch addDeck in this function
     submit = () => {
-        const { nameOfDeck } = this.state
-        if(nameOfDeck === ''){
+        const { nameOfDeck } = this.state;
+        if(nameOfDeck === '') {
             alert('Name a deck!')
-            return
+            return;
         }
-        const deckId = generateUID()
-        const title = nameOfDeck
+        const deckId = generateUID();
+        const title = nameOfDeck;
         const newDeck = {
             title: nameOfDeck.trim(),
             questions: []
         }
-        this.props.dispatch(addDeck(deckId, newDeck))
-        this.setState({nameOfDeck: ''})
-        this.toDeck(deckId, title)
-        saveDeck(deckId, newDeck)
+        this.props.dispatch(addDeck(deckId, newDeck));
+        this.setState({nameOfDeck: ''});
+        this.toDeck(deckId, title);
+        saveDeck(deckId, newDeck);
     }
 
     toDeck = (id, title) => {
-        this.props.navigation.navigate('Deck', {deckId: id, deckName: title})
+        this.props.navigation.navigate('Deck', {deckId: id, deckName: title});
     }
 
     render(){
-        const { nameOfDeck } = this.state
+        const { nameOfDeck } = this.state;
 
         return(
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
-                <Text style={styles.question}>Name your new deck!</Text>
+                <Text style={styles.question}>Name the new Deck:</Text>
                 <TextInput
-                 value={nameOfDeck}
-                 style={styles.input}
-                 onChangeText={(nameOfDeck) => this.setState({nameOfDeck})}
+                    value={nameOfDeck}
+                    style={styles.input}
+                    onChangeText={ nameOfDeck => this.setState({nameOfDeck})}
                 />
                 <SubmitDeckBtn onPress={this.submit} />
             </KeyboardAvoidingView>

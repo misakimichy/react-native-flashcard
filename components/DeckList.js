@@ -6,12 +6,12 @@ import styles from '../styles';
 
 class DeckList extends Component {
     render() {
-        const { id, title, count, navigation } = this.props
+        const { id, title, count, navigation } = this.props;
 
         return (
             <TouchableOpacity
-             style={styles.item} 
-             onPress={() => navigation.navigate('Deck', {deckId: id, deckName: title})}
+                style={styles.item} 
+                onPress={() => navigation.navigate('Deck', {deckId: id, deckName: title})}
             >
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.count}>{count} {count === 1 ? `card` : `cards`}</Text>

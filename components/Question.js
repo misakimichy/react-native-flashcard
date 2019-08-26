@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { styles } from '../styles/index';
-import {  clearLocalNotification, setLocalNotification } from '../utils/notifications';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
+import Card from './Card';
+import Score from './Score';
+import { styles } from '../styles/styles';
 
 class Question extends Component {
     state = {
@@ -14,7 +16,7 @@ class Question extends Component {
 
     componentDidMount() {
         clearLocalNotification()
-        .then(setLocalNotification)
+            .then(setLocalNotification)
     }
 
     handleToggle() {
@@ -45,29 +47,30 @@ class Question extends Component {
     render() {
         const { deckId, deck } = this.props;
         const { index, showAnswer, correct, incorrect } = this.state;
+        // Return boolean
         const showCard = index < deck.questions.length ? true : false;
 
         // Show Card component if showCard is true, and show Score component if showCard is false
         return(
             <View style={styles.center}>
                 <Text style={styles.count}>{ showCard ? index + 1 : index }/{ deck.questions.length }</Text>
-                {showCard ?
-                    <Card
+                {showCard
+                ?(<Card
                         deck={deck}
                         flip={this.handleToggle}
                         index={index}
                         showAnswer={showAnswer}
                         answer={this.handleAnswer}
                     />
-                :
-                    <Score
+                )
+                :(<Score
                         deck={deck}
                         deckId={deckId}
                         restart={this.restart}
                         correct={correct}
                         incorrect={incorrect}
                     />
-                }
+                )}
             </View>
         )
     }

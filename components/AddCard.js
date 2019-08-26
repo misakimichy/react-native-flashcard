@@ -1,8 +1,9 @@
 import React, { Component} from 'react';
-import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import { addCard } from '../actions';
 import { saveCard } from '../utils/api';
-import { connect } from 'react-redux';
+import styles from '../style/styles';
 
 SubmitBtn = ({ onPress }) => {
     return (
@@ -20,24 +21,24 @@ class AddCard extends Component{
         answer: ''
     }
 
-    submit = () => {
-        const { question, answer } = this.state
-        const { deckId, dispatch } = this.props
+    submit() {
+        const { question, answer } = this.state;
+        const { deckId, dispatch } = this.props;
         if(question === '' || answer === ''){
             alert('Please fill in both the input fields')
             return 
         }
 
-        dispatch(addCard(deckId, question, answer))
+        dispatch(addCard(deckId, question, answer));
         this.setState({
             question: '',
             answer: ''
         })
-        saveCard(deckId, question, answer)
+        saveCard(deckId, question, answer);
     }
 
     render(){
-        const { question, answer } = this.state
+        const { question, answer } = this.state;
         
         return(
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
