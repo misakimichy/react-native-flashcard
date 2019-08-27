@@ -8,6 +8,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@devexpress/dx-react-core": "^2.0.3",
+    "@devexpress/dx-react-scheduler": "^2.0.3",
     "@use-expo/permissions": "^0.9.0",
     "expo": "^34.0.1",
     "expo-constants": "^6.0.0",
@@ -18,12 +20,12 @@
     "react-native-status-bar-height": "^2.4.0",
     "react-native-web": "^0.11.4",
     "react-navigation": "^3.12.0",
-    "react-redux": "^6.0.1",
     "redux": "^4.0.4"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
-    "react": "^16.8.3",
+    "react": "^16.9.0",
+    "react-redux": "^7.1.0",
     "schedule": "^0.4.0"
   },
   "private": true
