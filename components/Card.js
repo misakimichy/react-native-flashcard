@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import TextButton from './TextButton';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 
  const Card = props => {
     const { index, deck, showAnswer, flip, answer } = props;

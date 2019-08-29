@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 
 const Score = props => {
     const { correct, incorrect, restart, deck, deckId, navigation } = props;

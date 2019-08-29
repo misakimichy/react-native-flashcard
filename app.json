@@ -3,7 +3,7 @@
     "name": "UdaciCards",
     "slug": "react-native-udacicards",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android",

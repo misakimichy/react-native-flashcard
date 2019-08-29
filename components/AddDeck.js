@@ -3,7 +3,7 @@ import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } f
 import { addDeck } from '../actions';
 import { saveDeck } from '../utils/api';
 import { generateUID } from '../utils/helpers';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 
 SubmitDeckBtn = ({ onPress }) => {
     return (

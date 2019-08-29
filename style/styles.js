@@ -54,7 +54,6 @@ export const style = StyleSheet.create({
     },
     list: {
         flex: 1,
-        alignSelf: 'stretch'
     },
     btn: {
         width: 150,
@@ -107,4 +106,4 @@ export const style = StyleSheet.create({
         textAlign: 'center',
         color: orange
     }
-})
+});

@@ -3,7 +3,7 @@ import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-n
 import { connect } from 'react-redux';
 import { addCard } from '../actions';
 import { saveCard } from '../utils/api';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 
 SubmitBtn = ({ onPress }) => {
     return (

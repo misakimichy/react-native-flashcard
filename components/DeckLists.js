@@ -4,7 +4,7 @@ import { View, FlatList } from 'react-native';
 import { AppLoading } from 'expo';
 import { receiveDecks } from '../actions';
 import { getDecks } from '../utils/api';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 import DeckList from './DeckList';
 
 class DeckLists extends Component{

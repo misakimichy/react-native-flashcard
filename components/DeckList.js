@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text,  TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import styles from '../style/styles';
+import { styles } from '../style/styles';
 
 class DeckList extends Component {
     render() {
