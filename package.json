@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
-
     "schedule": "^0.4.0"
   },
   "private": true
