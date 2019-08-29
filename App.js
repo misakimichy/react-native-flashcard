@@ -49,7 +49,7 @@ const Tabs = createBottomTabNavigator({
 });
 
 // Main view
-const MainNav = createStackNavigator({
+const AppNavigator = createStackNavigator({
   Home: {
       screen: Tabs,
       navigationOptions: {
@@ -80,7 +80,7 @@ const MainNav = createStackNavigator({
   }
 });
 
-const AppNav = createAppContainer(MainNav);
+const AppContainer = createAppContainer(AppNavigator);
 
 class App extends Component {
   componentDidMount(){
@@ -91,7 +91,7 @@ class App extends Component {
           <Provider store={createStore(reducer)}>
               <View style={{ flex: 1 }}>
                   <AppStatusBar backgroundColor={black} barStyle="light-content" />
-                  <AppNav />
+                  <AppContainer />
               </View>
           </Provider>
       )
