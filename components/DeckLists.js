@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, FlatList } from 'react-native';
 import { AppLoading } from 'expo';
-import { receiveDecks } from '../actions';
+import { receiveDecks } from '../actions/index';
 import { getDecks } from '../utils/api';
 import { styles } from '../style/styles';
 import DeckList from './DeckList';

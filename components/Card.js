@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import TextButton from './TextButton';
 import { styles } from '../style/styles';
+import { red } from '../utils/colors';
 
  const Card = props => {
     const { index, deck, showAnswer, flip, answer } = props;

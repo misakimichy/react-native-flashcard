@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } from 'react-native';
-import { addDeck } from '../actions';
+import { addDeck } from '../actions/index';
 import { saveDeck } from '../utils/api';
 import { generateUID } from '../utils/helpers';
 import { styles } from '../style/styles';

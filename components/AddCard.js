@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { addCard } from '../actions';
+import { addCard } from '../actions/index';
 import { saveCard } from '../utils/api';
 import { styles } from '../style/styles';
 
