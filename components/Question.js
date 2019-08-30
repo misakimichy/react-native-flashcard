@@ -19,14 +19,14 @@ class Question extends Component {
             .then(setLocalNotification)
     }
 
-    handleToggle() {
+    handleToggle = () => {
         this.setState(previousState => ({
             showAnswer: !previousState.showAnswer
         }));
     }
 
-    handleAnswer(result) {
-        this.setState( state => ({
+    handleAnswer = (result) => {
+        this.setState(state => ({
             index: state.index + 1,
             showAnswer: false,
             correct: result === 'correct' ? state.correct + 1 : state.correct,
@@ -35,7 +35,7 @@ class Question extends Component {
     }
 
     // Reset the state
-    restart() {
+    restart = () => {
         this.setState({
             index: 0,
             showAnswer: false,

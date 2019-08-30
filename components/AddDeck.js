@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { connect } from "react-redux";
 import { addDeck } from '../actions/index';
 import { saveDeck } from '../utils/api';
 import { generateUID } from '../utils/helpers';
@@ -24,13 +25,15 @@ class AddDeck extends Component{
     submit = () => {
         const { nameOfDeck } = this.state;
         if(nameOfDeck === '') {
-            alert('Name a deck!')
+            alert('Please name a deck!')
             return;
         }
         const deckId = generateUID();
         const title = nameOfDeck;
         const newDeck = {
+            // trim whitespace
             title: nameOfDeck.trim(),
+            // empty array for questions
             questions: []
         }
         this.props.dispatch(addDeck(deckId, newDeck));
@@ -54,10 +57,10 @@ class AddDeck extends Component{
                     style={styles.input}
                     onChangeText={ nameOfDeck => this.setState({nameOfDeck})}
                 />
-                <SubmitDeckBtn onPress={this.submit} />
+                <SubmitDeckBtn onPress={this.submit} SubmitDeckBtn/>
             </KeyboardAvoidingView>
         )
     }
 }
 
-export default AddDeck;
+export default connect()(AddDeck);
