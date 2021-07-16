@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "UdaciCards",
-    "slug": "react-native-udacicards",
+    "name": "Flash Card",
+    "slug": "react-native-flashcard",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [

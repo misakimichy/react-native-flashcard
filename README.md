@@ -1,9 +1,4 @@
-# UdaciCards
-
-Third project of React Nanodegre by Udacity.
-This project is based on the [project rubric](https://review.udacity.com/#!/rubrics/1021/view).
-
-
+# Flashcard
 ## Contents
 - The initial Deck View shows the current decks with the card name and number of cards.
 
