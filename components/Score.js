@@ -22,7 +22,7 @@ const Score = props => {
 
             <TouchableOpacity
                 style={[styles.btn, {backgroundColor: white, marginTop: 25}]}
-                onPress={() => navigation.navigate('Deck', {deckId: deckId, deckName: deck.title})}
+                onPress={() => navigation.navigate('DeckLists', {deckId: deckId, deckName: deck.title})}
             >
                 <Text style={styles.btnText}>Back to Deck</Text>
             </TouchableOpacity>

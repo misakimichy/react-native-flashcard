@@ -18,7 +18,7 @@ const store = createStore(reducer);
 
 const AppStatusBar = ({ backgroundColor, ...props}) => {
   return (
-    <View style={{height: Constants.statusBarHeight}}>
+    <View style={{height: 100}}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </View>
   )

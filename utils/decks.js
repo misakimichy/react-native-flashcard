@@ -2,29 +2,29 @@ import { AsyncStorage } from 'react-native';
 
 export const DECKS_KEY = 'UdacityFlashCards';
 
-let decks = {
+const decks = {
     React: {
         title: 'React',
         questions: [
             {
-                question: 'What is React?',
-                answer: 'React is a javascript library written by the developers at Facebook to build cleaner reusable components'
+                question: 'React is a Java framework.',
+                answer: 'React is a JavaScript library written by the developers at Facebook to build cleaner reusable components'
             },
             {
-                question: 'What is state in React?',
+                question: 'React state is an object.',
                 answer: 'State is an object that determines the behavior of a component'
             },
         ]
     },
-    Datastructures: {
+    DataStructures: {
         title: 'Data Structures',
         questions: [
             {
-                question: 'What is an array in C?',
+                question: 'An array is a datatype.',
                 answer: 'An array is a sequence of elements of similar datatype'
             },
             {
-                question: 'What is a string?',
+                question: 'String is sequence of characters.',
                 answer: 'An string is a sequence of characters'
             }
         ]

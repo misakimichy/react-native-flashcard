@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
         color: black
     },
     input: {
-        width: 250,
+        width: 350,
         height: 44,
         padding: 8,
         borderWidth: 1,
